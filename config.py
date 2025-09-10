@@ -13,11 +13,11 @@ class Config:
     output_dir = "indian_output"
     learning_rate = 2e-5
     batch_size = 16
-    num_epochs = 1
+    num_epochs = 3
     weight_decay = 0.01
     logging_steps = 100
 
     # HuggingFace Hub
     push_to_hub = True
     hub_token = ""  # keep in .env in real case
-    repo_id = "sreejith8100/indiantest1" 
+    repo_id = "sreejith8100/indiantest2" 

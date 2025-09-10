@@ -4,8 +4,11 @@ from transformers import TrainingArguments, Trainer
 from transformers import TrainerCallback
 from logger import get_logger
 
+
 logger = get_logger(__name__)
 
+import wandb
+wandb.init(mode="disabled")
 
 class SamplesProgressCallback(TrainerCallback):
     def on_step_end(self, args, state, control, **kwargs):
@@ -50,7 +53,8 @@ class TrainerModule:
             greater_is_better=True,        # higher metric = better
             logging_strategy="steps",
             logging_steps=self.config.logging_steps,
-            push_to_hub=self.config.push_to_hub
+            push_to_hub=self.config.push_to_hub,
+
         )
 
         return Trainer(
